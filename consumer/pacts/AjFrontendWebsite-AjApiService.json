@@ -1,0 +1,73 @@
+{
+  "consumer": {
+    "name": "AjFrontendWebsite"
+  },
+  "interactions": [
+    {
+      "description": "Get All Breaking News",
+      "providerState": "Breaking News Exists",
+      "request": {
+        "method": "GET",
+        "path": "/graphql",
+        "query": "extensions=%257B%257D&operationName=ArchipelagoBreakingTickerQuery&variables=%257B%257D&wp-site=aje"
+      },
+      "response": {
+        "body": {
+          "data": {
+            "breakingNews": {
+              "__typename": "BreakingNews",
+              "link": "/news/2024/4/21/mass-grave-with-50-bodies-found-in-khan-younis-hlstyleguide-2",
+              "modified": "2024-04-23 08:25:30",
+              "post": "2840262",
+              "tickerText": [
+                "New topics",
+                "New breaking news",
+                "New update"
+              ],
+              "tickerTitle": "breaking"
+            }
+          }
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body.data.breakingNews.__typename": {
+            "match": "type"
+          },
+          "$.body.data.breakingNews.link": {
+            "match": "type"
+          },
+          "$.body.data.breakingNews.modified": {
+            "match": "type"
+          },
+          "$.body.data.breakingNews.post": {
+            "match": "type"
+          },
+          "$.body.data.breakingNews.tickerText": {
+            "match": "type"
+          },
+          "$.body.data.breakingNews.tickerTitle": {
+            "match": "type"
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "12.1.0"
+    },
+    "pactRust": {
+      "ffi": "0.4.16",
+      "models": "1.1.19"
+    },
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  },
+  "provider": {
+    "name": "AjApiService"
+  }
+}
